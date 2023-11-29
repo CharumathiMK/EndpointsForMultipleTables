@@ -18,8 +18,8 @@ var provider = builder.Services.BuildServiceProvider();
 var config = provider.GetRequiredService<IConfiguration>();
 builder.Services.AddDbContext<TaskDatabaseContext>(item => item.UseSqlServer(config.GetConnectionString("dbcs")));
 
-//builder.Services.AddScoped<IDepartment, DepartmentRepository>();
-//builder.Services.AddScoped<IEmployee, EmployeeRepository>();
+builder.Services.AddScoped<IDepartment, DepartmentRepository>();
+builder.Services.AddScoped<IEmployee, EmployeeRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddRepository();
 var app = builder.Build();
